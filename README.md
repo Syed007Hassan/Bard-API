@@ -1,5 +1,5 @@
 # Bard-API
-Bard API free for exploration purpose. 
+Bard API for integrating GEN AI into applications. 
 
 - To run the bard1.py follow [Vertex Api](https://www.youtube.com/watch?v=hzBp1ZWz1Fo)
 
@@ -20,3 +20,5 @@ BARD_API_KEY=<Secure-1PSID>.
 - Now you are good to go
 
 ![image](https://github.com/Syed007Hassan/Bard-API/assets/104893311/24fa15bc-240f-47f3-b48a-562008c68976)
+
+- Searching data from JSON files using prompts, run [searchDataUsingPrompts.py]()
