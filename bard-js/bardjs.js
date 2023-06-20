@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Retrieve the API key from the environment variables
+// Retrieve the API key from the environment variables  file
 const apiKey = process.env.BARD_API_KEY;
 
 await Bard.init(apiKey);
