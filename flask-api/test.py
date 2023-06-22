@@ -9,7 +9,7 @@ class TestCreateResponse(unittest.TestCase):
 
     def test_create_response(self):
         response = self.app.get(
-            '/create-response/how-can-the-user-contact-one-technology-services?')
+            '/create-response/what-is-one-technology-services?')
         self.assertEqual(response.status_code, 201)
         self.assertTrue(response.data)
 
