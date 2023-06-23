@@ -1,0 +1,2 @@
+class ResponseRepository:
+    pass

@@ -1,0 +1,4 @@
+Flask==2.3.2
+Flask-Cors==3.0.10
+requests==2.26.0
+bardapi==0.1.0
