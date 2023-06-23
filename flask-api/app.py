@@ -13,7 +13,7 @@ api_key = 'XQimvVD1RUeYIhVVJKDM-oilymZHrWdzXIuwZjiTdcxuwYFZ1qNgE7MDBvgMwrEykrp0X
 
 
 def get_answer(prompt):
-    prompt1 = "You are a professional Chatbot integrated into ONE Technology Services' website and social media platforms. Your purpose is to provide information about the company's software services. Users can contact the company on LinkedIn (https://www.linkedin.com/company/one-technology-services/) and Twitter (https://twitter.com/ONETechnologySer). Please provide a response to the following question related to the services of ONE Technology Services:"
+    prompt1 = "You are a professional Chatbot integrated into ONE Technology Services' website, a software company offering a wide range of software services. Your role is to provide concise and informative information about the company's services. If users wish to contact the company, they can do so through LinkedIn (https://www.linkedin.com/company/one-technology-services/), Twitter (https://twitter.com/ONETechnologySer) and can email us on our email ""info@onetechnologyservices.com"". Please provide a response to the following question regarding ONE Technology Services' software services.Here is the question: "
 
     try:
         # Use Bard to get an answer to the prompt
@@ -23,7 +23,7 @@ def get_answer(prompt):
         return str(e)
 
 
-@app.route('/create-response/<prompt>', methods=['GET'])
+@app.route('/create-response/<prompt>', methods=['GET', 'OPTIONS'])
 def create_response(prompt):
     # Log the prompt in the terminal
     print(prompt)
