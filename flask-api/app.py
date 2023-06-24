@@ -30,7 +30,7 @@ def create_response(prompt):
         answer = get_answer(prompt)
         return answer
     except Exception as e:
-        raise Exception(f"Failed to create response: {str(e)}")
+        raise Exception(f"Failed to create response: {e}")
 
 
 @app.route('/create-response/<prompt>', methods=['GET', 'OPTIONS'])
@@ -57,5 +57,5 @@ def create_response_controller(prompt):
 
 if __name__ == '__main__':
     # Use the PORT environment variable provided by Azure
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    # port = int(os.environ.get('PORT', 8000))
+    app.run(host='0.0.0.0', port=8000)
