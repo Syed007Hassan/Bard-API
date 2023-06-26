@@ -1,4 +1,4 @@
-import pprint
+
 import google.generativeai as palm
 
 palm.configure(api_key='AIzaSyCiEx4VJELwnAjCmGfgZ4ovTKz50pIRJWQ')
@@ -94,14 +94,14 @@ model = models[0].name
 # print(model)
 
 
-prompt = "from the data list provided above, generate a list of items with their respective prices."
+prompt = "from the data list provided above, generate a list of items with their respective Selling prices."
 
 completion = palm.generate_text(
     model=model,
     prompt=str(data) + prompt,
     temperature=0,
     # The maximum length of the response
-    max_output_tokens=800,
+    max_output_tokens=1000,
 )
 
 print(completion.result)
