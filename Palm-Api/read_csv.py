@@ -1,8 +1,8 @@
-# pip install pandas
+import os
 import pandas as pd
 
-# Read the csv file
-data = pd.read_csv('space_shortened.csv')
+# Read the Excel file
+df = pd.read_excel(r'D:/All Projects/Bard/Bard-API/Palm-Api/test_data.xlsx')
 
-# Print it out if you want
-print(data)
+# Print the contents of the file
+print(df) 
