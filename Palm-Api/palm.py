@@ -3,6 +3,7 @@ import csv
 import pandas as pd
 import os
 import json
+import pprint
 
 palm.configure(api_key='AIzaSyCiEx4VJELwnAjCmGfgZ4ovTKz50pIRJWQ')
 
@@ -32,7 +33,7 @@ model = models[0].name
 with open('D:/All Projects/Bard/Bard-API/Palm-Api/test_data.json') as json_file:
     test_json_data = json.load(json_file)
 
-prompt = "You are an expert at solving word problems. So from the data list provided above, generate a list of PassengerId who have Destination as '55 Cancri e'"
+prompt = "You are an expert at solving word problems. So from the data list provided above, generate a list of PassengerId whose age is greater than 40'"
 
 
 completion = palm.generate_text(
@@ -44,4 +45,4 @@ completion = palm.generate_text(
     max_output_tokens=1000,
 )
 
-print(completion.result)
+pprint.pprint(completion.result)
