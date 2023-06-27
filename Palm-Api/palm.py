@@ -1,5 +1,6 @@
 
 import google.generativeai as palm
+import csv
 
 palm.configure(api_key='AIzaSyCiEx4VJELwnAjCmGfgZ4ovTKz50pIRJWQ')
 
@@ -93,15 +94,22 @@ data = [
 model = models[0].name
 # print(model)
 
+# Read the CSV file and use its contents as the prompt
+with open('./space_shortened.csv', newline='') as csvfile:
+    reader = csv.reader(csvfile)
+    csv_data = '\n'.join([' '.join(row) for row in reader])
 
-prompt = "from the data list provided above, generate a list of items with their respective Selling prices."
 
-completion = palm.generate_text(
-    model=model,
-    prompt=str(data) + prompt,
-    temperature=0,
-    # The maximum length of the response
-    max_output_tokens=1000,
-)
+print(csv_data)
 
-print(completion.result)
+# prompt = "from the data list provided above, generate a list of items with their respective Selling prices."
+
+# completion = palm.generate_text(
+#     model=model,
+#     prompt=str(data) + prompt,
+#     temperature=0,
+#     # The maximum length of the response
+#     max_output_tokens=1000,
+# )
+
+# print(completion.result)
