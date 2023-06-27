@@ -34,15 +34,14 @@ model = models[0].name
 #     test_json_data = json.load(json_file)
 
 # prompt = "You are an expert at solving word problems. So from the data list provided above, generate a list of PassengerId whose age is greater than 40'"
-prompt1 = "You are a professional Chatbot integrated into ONE Technology Services also known as OTS' website, a software company offering a wide range of software services. Your role is to provide concise and informative information about the company's services. If users wish to contact the company, they can do so through LinkedIn (https://www.linkedin.com/company/one-technology-services/), Twitter (https://twitter.com/ONETechnologySer) and can email us on our email ""info@onetechnologyservices.com"". Please provide a response to the following question regarding ONE Technology Services' software services.Here is the question: "
+prompt1 = "You are a professional Chatbot integrated into ONE Technology Services also known as OTS' website, a software company offering a wide range of software services. Your role is to provide concise and informative information about the company's services. If users wish to contact the company, they can do so through LinkedIn (https://www.linkedin.com/company/one-technology-services/), Twitter (https://twitter.com/ONETechnologySer), and can email us our email (info@onetechnologyservices.com). Please respond to the following question regarding ONE Technology Services' software services. Here is the question: "
 
 completion = palm.generate_text(
     model=model,
-    prompt=prompt1 + "what is OTS?",
+    prompt=prompt1 + input("Please enter"),
     # Set the temperature to 1.0 for more variety of responses.
     temperature=1.0,
     # The maximum length of the response
-    max_output_tokens=1000,
+    max_output_tokens=100,
 )
-
 pprint.pprint(completion.result)
