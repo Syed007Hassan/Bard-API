@@ -10,11 +10,9 @@ app = Flask(__name__)
 CORS(app)
 
 
-# Get the API key from the environment variable
+# Get the API key from the environment variable and set it as the API key for Bard
 
 api_key = 'YAjeLuEEFf58g6txvr56-Na_CafiZgXsu6FldB6NY9s31dsT7qIqsJymj7icBcSNuxmhNQ.'
-# api_key = os.environ.get('BARD_API_KEY')
-bard = Bard()
 
 
 def get_answer(prompt):
@@ -23,7 +21,7 @@ def get_answer(prompt):
     try:
 
         # Use Bard to get an answer to the prompt
-        answer = bard.get_answer(prompt1 + prompt)['content']
+        answer = Bard(api_key).get_answer(prompt1 + prompt)['content']
         return answer
 
     except Exception as e:
