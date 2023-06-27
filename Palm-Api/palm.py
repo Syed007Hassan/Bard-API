@@ -11,30 +11,33 @@ models = [m for m in palm.list_models(
 model = models[0].name
 
 # Read the CSV file and convert each row to a dictionary
-with open('D:/All Projects/Bard/Bard-API/Palm-Api/test_data.csv', 'r', encoding='utf-8') as csvfile:
-    reader = csv.DictReader(csvfile)
-    rows = list(reader)
+# with open('D:/All Projects/Bard/Bard-API/Palm-Api/test_data.csv', 'r', encoding='utf-8') as csvfile:
+#     reader = csv.DictReader(csvfile)
+#     rows = list(reader)
 
 # Convert the list of dictionaries to a JSON string
-json_data = json.dumps(rows)
+# json_data = json.dumps(rows)
 
 # Remove unwanted backslashes from the JSON string
-json_data = json_data.replace('\\', '')
+# json_data = json_data.replace('\\', '')
 
 # Convert the JSON string to a Python object
-data = json.loads(json_data)
+# data = json.loads(json_data)
 
 # Write the data to a JSON file at the specified path
-with open('D:/All Projects/Bard/Bard-API/Palm-Api/test_data.json', 'w') as outfile:
-    json.dump(data, outfile)
+# with open('D:/All Projects/Bard/Bard-API/Palm-Api/test_data.json', 'w') as outfile:
+#     json.dump(data, outfile)
 
-prompt = "You are an expert at solving word problems. So from the data list provided above, generate a list of PassengerId who have HomePlanet as 'Earth'"
-example_prompt = str(data) + "\n" + prompt
-# print(example_prompt)
+# Opening test_data.json file
+with open('D:/All Projects/Bard/Bard-API/Palm-Api/test_data.json') as json_file:
+    test_json_data = json.load(json_file)
+
+prompt = "You are an expert at solving word problems. So from the data list provided above, generate a list of PassengerId who have Destination as '55 Cancri e'"
+
 
 completion = palm.generate_text(
     model=model,
-    prompt= str(data) + prompt,
+    prompt= str(test_json_data) + prompt,
     # Set the temperature to 1.0 for more variety of responses.
     temperature=1.0,
     # The maximum length of the response
