@@ -1,31 +1,45 @@
 import Bard, { askAI } from "bard-ai";
-
 import dotenv from "dotenv";
+import express from "express";
+import cors from "cors";
 
+const app = express();
 dotenv.config();
 
-// Retrieve the API key from the environment variables  file
-const apiKey = process.env.BARD_API_KEY;
+// Retrieve the API key from the environment variables file
+const apiKey = 'XQimvVD1RUeYIhVVJKDM-oilymZHrWdzXIuwZjiTdcxuwYFZ1qNgE7MDBvgMwrEykrp0XQ.'
+if (!apiKey) {
+  console.error("BARD_API_KEY not found in environment variables");
+  process.exit(1);
+}
 
-await Bard.init(apiKey);
+(async () => {
+  try {
+    await Bard.init(apiKey);
+    console.log("Bard initialized successfully");
+  } catch (error) {
+    console.error("Error initializing Bard:", error);
+    process.exit(1);
+  }
+})();
 
-// Create a list of data
-const data = [
-    {
-        name: 'John',
-        age: 30,
-        city: 'New York'
-    },
-    {
-        name: 'Peter',
-        age: 40,
-        city: 'Boston'
-    }
-];
+const prompt2 =
+  "You are a professional Chatbot integrated into ONE Technology Services' website, a software company offering a wide range of software services. Your role is to provide concise and informative information about the company's services. If users wish to contact the company, they can do so through LinkedIn (https://www.linkedin.com/company/one-technology-services/), Twitter (https://twitter.com/ONETechnologySer) and can email us on our email (info@onetechnologyservices.com). Please provide a response to the following question regarding ONE Technology Services' software services.";
 
+app.use(cors());
 
+app.get("/create-response/:prompt", async (req, res) => {
+  const prompt = req.params.prompt;
+  try {
+    const response = await Bard.askAI(prompt2 + prompt);
+    console.log(response);
+    res.json({ message: response });
+  } catch (error) {
+    console.error("Error generating response:", error);
+    res.status(500).json({ message: "Error generating response" });
+  }
+});
 
-const prompt2 = 'From the data list provided at the end, your response should not be in JSON format and it should be concise.';
-
- console.log(await Bard.askAI("find all the names whose age is greater than 30 from the given data list: " +  data ));
-
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
+});

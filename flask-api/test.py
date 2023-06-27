@@ -9,14 +9,15 @@ class TestCreateResponse(unittest.TestCase):
 
     def test_create_response(self):
         response = self.app.get(
-            '/create-response/what-is-one-technology-services?')
+            'https://calm-plum-dove-tam.cyclic.app/create-response/what-is-one-technology-services?')
         self.assertEqual(response.status_code, 201)
         self.assertTrue(response.data)
 
         print(response.data)
 
     def test_create_response_invalid_prompt(self):
-        response = self.app.get('/create-response/')
+        response = self.app.get(
+            'https://calm-plum-dove-tam.cyclic.app/create-response/')
         self.assertEqual(response.status_code, 404)
 
 
