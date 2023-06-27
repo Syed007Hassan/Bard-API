@@ -12,7 +12,7 @@ CORS(app)
 
 # Get the API key from the environment variable
 
-api_key = 'XwimvVXSuxm0jM1QOMozoS7DEgmkSCX6m0R9QgLJY9sDwzbPWLA2XHstCL3LDVCBp9W6sg.'
+api_key = 'YAjeLuEEFf58g6txvr56-Na_CafiZgXsu6FldB6NY9s31dsT7qIqsJymj7icBcSNuxmhNQ.'
 # api_key = os.environ.get('BARD_API_KEY')
 bard = Bard()
 
