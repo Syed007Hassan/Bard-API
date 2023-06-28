@@ -12,7 +12,7 @@ CORS(app)
 
 # Get the API key from the environment variable and set it as the API key for Bard
 
-api_key = 'YAjeLuEEFf58g6txvr56-Na_CafiZgXsu6FldB6NY9s31dsT7qIqsJymj7icBcSNuxmhNQ.'
+api_key = 'YAimval6a5ua57HnZuKpiTD9pHRy40ePEybQoXTq-knahpqFCrzQy90ssEMPGYMv9_9mzg.'
 
 
 def get_answer(prompt):
